@@ -1,4 +1,8 @@
 /*
+ * NOTICE! This file has been changed from its original state.
+ */
+
+/*
  * Licensed to Elasticsearch B.V. under one or more contributor
  * license agreements. See the NOTICE file distributed with
  * this work for additional information regarding copyright
