@@ -21,7 +21,7 @@ services:
   elastiflow-elasticsearch-oss:
     image: robcowart/elastiflow-elasticsearch-oss:3.3.0_6.4.1
     container_name: elastiflow-elasticsearch-oss
-    restart: 'no'
+    restart: 'always'
     ulimits:
       memlock:
         soft: -1
@@ -37,12 +37,12 @@ services:
       - stack
     
     volumes:
-      - /var/lib/elasticsearch:/usr/share/elasticsearch/data
+      - elk_stack_volume:/usr/share/elasticsearch/data
 
   elastiflow-kibana-oss:
     image: robcowart/elastiflow-kibana-oss:3.3.0_6.4.1
     container_name: elastiflow-kibana-oss
-    restart: 'no'
+    restart: 'always'
     depends_on:
       - elastiflow-elasticsearch-oss
     ports:
@@ -53,7 +53,7 @@ services:
   elastiflow-logstash-oss:
     image: robcowart/elastiflow-logstash-oss:3.3.0_6.4.1
     container_name: elastiflow-logstash-oss
-    restart: 'no'
+    restart: 'always'
     depends_on:
       - elastiflow-elasticsearch-oss
     environment:
@@ -105,3 +105,6 @@ services:
 networks: {
   stack: {}
 }
+
+volumes:
+  elk_stack_volume:

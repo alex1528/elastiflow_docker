@@ -28,4 +28,7 @@ services:
         hard: -1
 
     volumes:
-      - /var/lib/elasticsearch:/usr/share/elasticsearch/data
+      - elk_stack_volume:/usr/share/elasticsearch/data
+
+volumes:
+  elk_stack_volume:
